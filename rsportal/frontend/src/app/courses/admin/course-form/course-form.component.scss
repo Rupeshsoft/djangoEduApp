@@ -1,0 +1,13 @@
+/* Styles for course form */
+.course-form {
+  padding: 16px;
+}
+.course-form label {
+  display: block;
+  margin-top: 8px;
+}
+.course-form input, .course-form textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}

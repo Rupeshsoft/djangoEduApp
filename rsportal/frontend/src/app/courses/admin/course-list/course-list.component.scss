@@ -1,0 +1,12 @@
+/* Styles for course list */
+.course-list {
+  padding: 16px;
+}
+.course-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.course-list th, .course-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}

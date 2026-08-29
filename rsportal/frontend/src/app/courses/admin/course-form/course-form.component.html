@@ -1,0 +1,17 @@
+<div class="course-form">
+  <h2>{{ editId ? 'Edit' : 'New' }} Course</h2>
+  <form (ngSubmit)="save()">
+    <div>
+      <label>Title</label>
+      <input name="title" [(ngModel)]="model.title" required />
+    </div>
+    <div>
+      <label>Description</label>
+      <textarea name="description" [(ngModel)]="model.description"></textarea>
+    </div>
+    <div>
+      <button type="submit">Save</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

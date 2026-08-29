@@ -1,0 +1,23 @@
+<div class="course-list">
+  <h2>Courses (Admin)</h2>
+  <button (click)="onNew()">New Course</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of courses$ | async">
+        <td>{{ c.title }}</td>
+        <td>{{ c.description }}</td>
+        <td>
+          <button (click)="onEdit(c.id)">Edit</button>
+          <button (click)="onDelete(c.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
