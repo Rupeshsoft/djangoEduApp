@@ -5,6 +5,7 @@ from .models import (
     Student,
     StudentEducation,
     AdvisorInquiry,
+    PlacementReportRequest,
 )
 
 from .validators import (
@@ -58,6 +59,23 @@ class AdvisorInquirySerializer(serializers.ModelSerializer):
             "created_at",
         ]
         read_only_fields = ["id", "created_at"]
+
+    def validate_graduation_year(self, value):
+        if value < 1950 or value > 2100:
+            raise serializers.ValidationError("Enter a valid graduation year.")
+        return value
+
+
+class PlacementReportRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PlacementReportRequest
+        fields = ["id", "name", "email", "phone", "program", "graduation_year", "company", "created_at"]
+        read_only_fields = ["id", "created_at"]
+
+    def validate_phone(self, value):
+        if not value.isdigit() or len(value) != 10:
+            raise serializers.ValidationError("Phone number must contain 10 digits.")
+        return value
 
     def validate_graduation_year(self, value):
         if value < 1950 or value > 2100:

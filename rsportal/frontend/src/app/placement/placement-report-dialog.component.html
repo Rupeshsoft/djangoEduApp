@@ -1,0 +1,65 @@
+<div class="report-dialog">
+  <section class="report-banner" aria-label="RS Portal placement outcomes">
+    <img src="images/program-team.svg" alt="Professionals collaborating on a project" />
+    <div class="report-banner-copy">
+      <p class="dialog-kicker">Career outcomes</p>
+      <h2>Build a career that moves forward.</h2>
+      <p>Get the latest placement outcomes and program highlights.</p>
+    </div>
+  </section>
+
+  <form [formGroup]="requestForm" (ngSubmit)="submit()" mat-dialog-content class="report-form">
+    <div class="report-dialog-header">
+      <div>
+        <p class="dialog-kicker">Placement report</p>
+        <h2 mat-dialog-title>{{ data.title }}</h2>
+        <p class="dialog-intro">Enter your details and we will send the report to your inbox.</p>
+      </div>
+      <button mat-icon-button type="button" mat-dialog-close aria-label="Close placement report dialog">
+        <mat-icon aria-hidden="true">close</mat-icon>
+      </button>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Full name</mat-label>
+      <input matInput formControlName="name" autocomplete="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email address</mat-label>
+      <input matInput type="email" formControlName="email" autocomplete="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone number</mat-label>
+      <input matInput type="tel" maxlength="10" formControlName="phone" autocomplete="tel" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Program</mat-label>
+      <mat-select formControlName="program">
+        <mat-option value="Full Stack Development">Full Stack Development</mat-option>
+        <mat-option value="Data Science">Data Science</mat-option>
+        <mat-option value="Cloud Computing">Cloud Computing</mat-option>
+        <mat-option value="UI/UX Design">UI/UX Design</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Graduation year</mat-label>
+      <input matInput type="number" min="1950" max="2100" formControlName="graduation_year" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Company</mat-label>
+      <input matInput formControlName="company" autocomplete="organization" />
+    </mat-form-field>
+
+    <div mat-dialog-actions align="end" class="dialog-actions">
+      <button mat-button type="button" mat-dialog-close [disabled]="submitting">Cancel</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="submitting">
+        {{ submitting ? 'Sending...' : 'View Placement Report' }}
+      </button>
+    </div>
+  </form>
+</div>

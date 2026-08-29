@@ -1,0 +1,29 @@
+:host { display: block; min-width: 0; }
+
+.report-dialog { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); width: min(100%, 780px); background: #fff; color: #10213d; }
+.report-banner { position: relative; min-height: 490px; overflow: hidden; background: #0f172a; }
+.report-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.08), rgba(15,23,42,0.92)); }
+.report-banner img { width: 100%; height: 100%; object-fit: cover; }
+.report-banner-copy { position: absolute; right: 1.5rem; bottom: 1.5rem; left: 1.5rem; z-index: 1; color: #fff; }
+.report-banner-copy h2 { margin: 0; font-size: 1.65rem; line-height: 1.08; }
+.report-banner-copy p:last-child { margin: 0.65rem 0 0; color: #dbeafe; font-size: 0.75rem; line-height: 1.5; }
+.report-dialog-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 0 0 0.5rem; }
+.report-dialog-header h2 { margin: 0; color: #10213d; font-size: 1.2rem; font-weight: 800; }
+.dialog-kicker { margin: 0 0 0.3rem; color: #1d4ed8; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.dialog-intro { max-width: 410px; margin: 0.45rem 0 0; color: #64748b; font-size: 0.72rem; line-height: 1.5; }
+.report-dialog-header button { flex: 0 0 auto; width: 2rem; height: 2rem; color: #475569; }
+.report-dialog-header button span { font-size: 1.35rem; line-height: 1; }
+.report-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: center; gap: 0.15rem 0.75rem; padding: 1.5rem; }
+.report-form .mat-mdc-form-field { width: 100%; font-size: 0.76rem; }
+.dialog-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 0.5rem; padding: 0.5rem 0 0; }
+.dialog-actions button { min-height: 2.3rem; border-radius: 4px; font-size: 0.72rem; font-weight: 700; }
+.dialog-actions button[type='submit'] { min-width: 10rem; }
+
+@media (max-width: 560px) {
+  .report-dialog { display: block; }
+  .report-banner { min-height: 170px; }
+  .report-form { grid-template-columns: 1fr; padding-inline: 1rem; }
+  .dialog-actions { grid-column: auto; }
+  .report-dialog-header { padding-inline: 1rem; }
+  .dialog-actions button { flex: 1; }
+}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import AdvisorInquiry, Student, StudentEducation
+from .models import AdvisorInquiry, PlacementReportRequest, Student, StudentEducation
 
 
 @admin.register(Student)
@@ -18,4 +18,10 @@ class StudentEducationAdmin(admin.ModelAdmin):
 @admin.register(AdvisorInquiry)
 class AdvisorInquiryAdmin(admin.ModelAdmin):
 	list_display = ("name", "email", "phone", "program", "created_at")
+	search_fields = ("name", "email", "phone", "company")
+
+
+@admin.register(PlacementReportRequest)
+class PlacementReportRequestAdmin(admin.ModelAdmin):
+	list_display = ("name", "email", "program", "graduation_year", "created_at")
 	search_fields = ("name", "email", "phone", "company")

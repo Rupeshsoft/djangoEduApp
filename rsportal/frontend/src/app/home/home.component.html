@@ -1,23 +1,44 @@
-<section class="home-page">
-  <div class="hero">
-    <p class="eyebrow">Students • Careers • Growth</p>
-    <h1>Welcome to RS Portal</h1>
-    <p class="lead">
-      Manage student registrations, track professional learning paths, and discover expert-led course offerings in one place.
-    </p>
-  </div>
+<main class="home-page">
+  <section class="hero-section">
+    <div class="hero-copy">
+      <p class="eyebrow">Career learning, made practical</p>
+      <span class="sr-only">Welcome to RS Portal</span>
+      <h1>Become the professional <span>built for the next decade in AI.</span></h1>
+      <p class="hero-lead">Build the skills, confidence, and professional network to move from learning to meaningful work.</p>
+      <div class="hero-actions">
+        <a mat-flat-button color="primary" routerLink="/professional-courses">Explore programs <mat-icon>arrow_forward</mat-icon></a>
+        <a mat-stroked-button routerLink="/students">View Registered Students</a>
+      </div>
+      <div class="hero-proof"><span><strong>10k+</strong> learners reached</span><span><strong>92%</strong> career confidence</span><span><strong>4.8/5</strong> learner rating</span></div>
+    </div>
+    <div class="hero-visual">
+      <img src="images/ai-career-hero.svg" alt="AI career program presentation" />
+      <button mat-icon-button class="play-button" type="button" aria-label="Play AI career presentation"><mat-icon>play_arrow</mat-icon></button>
+      <div class="visual-badge"><mat-icon>verified</mat-icon><span><strong>Learn by doing</strong><small>Projects that feel like the real world</small></span></div>
+    </div>
+  </section>
 
-  <div class="feature-grid">
-    <article class="feature-card">
-      <h2>Registered Students</h2>
-      <p>Review all enrolled professionals and academic learners registered with the portal.</p>
-      <a routerLink="/students" class="primary-action">View Registered Students</a>
-    </article>
+  <section class="trust-strip" aria-label="Portal outcomes"><span>Trusted learning paths for ambitious professionals</span><div class="trust-items"><span><mat-icon>school</mat-icon> Guided learning</span><span><mat-icon>groups</mat-icon> Expert community</span><span><mat-icon>work_history</mat-icon> Career momentum</span></div><button mat-stroked-button color="primary" type="button" class="placement-report-link" (click)="openPlacementReport()">View Placement Report <mat-icon>arrow_forward</mat-icon></button></section>
 
-    <article class="feature-card">
-      <h2>Professional Courses</h2>
-      <p>Explore curated training programs designed for practical, career-oriented growth.</p>
-      <a routerLink="/professional-courses" class="primary-action">Professional Courses</a>
-    </article>
-  </div>
-</section>
+  <section class="section-block outcomes-section">
+    <div class="section-heading"><div><p class="eyebrow">A better way forward</p><h2>Turn curiosity into capability</h2></div><p>Everything you need to find your next direction, develop in-demand skills, and stay connected to opportunity.</p></div>
+    <div class="outcome-grid">
+      <mat-card class="outcome-card outcome-blue"><mat-icon>route</mat-icon><h3>Find your path</h3><p>Choose a focused route designed around the roles employers are hiring for today.</p><a mat-button color="primary" routerLink="/professional-courses">Explore paths <mat-icon>arrow_forward</mat-icon></a></mat-card>
+      <mat-card class="outcome-card outcome-yellow"><mat-icon>construction</mat-icon><h3>Build real skills</h3><p>Practice through projects, feedback, and educational milestones you can see and measure.</p><a mat-button color="primary" routerLink="/students/register">Register to learn <mat-icon>arrow_forward</mat-icon></a></mat-card>
+      <mat-card class="outcome-card outcome-green"><mat-icon>diversity_3</mat-icon><h3>Meet your people</h3><p>Join a growing community of learners and professionals moving forward together.</p><a mat-button color="primary" routerLink="/students">Meet the community <mat-icon>arrow_forward</mat-icon></a></mat-card>
+    </div>
+  </section>
+
+  <section class="section-block program-section">
+    <div class="section-heading compact-heading"><div><p class="eyebrow">Featured program</p><h2>Learning that meets you where you are</h2></div><a mat-stroked-button color="primary" routerLink="/professional-courses">See all programs</a></div>
+    <div class="program-layout"><div class="program-image"><img src="images/program-team.svg" alt="Team working together around a table" /><span class="image-label">Most popular</span></div><mat-card class="program-card"><p class="card-kicker">Full Stack Development</p><h3>From first commit to production-ready thinking.</h3><p>Build a strong technical foundation across frontend, backend, databases, and the professional habits that bring it all together.</p><ul><li><mat-icon>check_circle</mat-icon> Mentor-guided projects</li><li><mat-icon>check_circle</mat-icon> Portfolio-ready outcomes</li><li><mat-icon>check_circle</mat-icon> Flexible learning format</li></ul><a mat-flat-button color="primary" routerLink="/professional-courses">View program <mat-icon>arrow_forward</mat-icon></a></mat-card></div>
+  </section>
+
+  <section class="section-block learning-section"><div class="section-heading"><div><p class="eyebrow">Explore what is possible</p><h2>One portal. Many ways to grow.</h2></div></div><div class="learning-grid"><mat-card class="learning-card"><div class="learning-icon"><mat-icon>code</mat-icon></div><p class="card-kicker">Technical tracks</p><h3>Learn skills that compound</h3><p>Move from fundamentals to confident execution with focused programs and practical challenges.</p></mat-card><mat-card class="learning-card dark-card"><div class="learning-icon"><mat-icon>psychology</mat-icon></div><p class="card-kicker">Professional growth</p><h3>Bring more of yourself to work</h3><p>Build communication, collaboration, and career clarity alongside your technical ability.</p></mat-card><mat-card class="learning-card"><div class="learning-icon"><mat-icon>workspace_premium</mat-icon></div><p class="card-kicker">Visible progress</p><h3>Make your momentum visible</h3><p>Track your learning journey and turn each milestone into evidence of what you can do.</p></mat-card></div></section>
+
+  <section class="community-section"><div class="community-copy"><p class="eyebrow">A community in motion</p><h2>Great careers are built together.</h2><p>Connect with people at every stage of the journey: new learners, experienced professionals, mentors, and future collaborators.</p><a mat-flat-button color="primary" routerLink="/students">View our community <mat-icon>arrow_forward</mat-icon></a></div><div class="community-collage"><img src="images/community.svg" alt="Professionals collaborating" /><img src="images/program-team.svg" alt="Team discussion in an office" /></div></section>
+
+  <section class="quote-section"><mat-icon>format_quote</mat-icon><blockquote>“The right learning environment does more than teach you. It gives you the courage to take the next step.”</blockquote><p>RS Portal learning community</p></section>
+  <section class="cta-section"><div><p class="eyebrow">Your next chapter starts here</p><h2>Ready to make it real?</h2><p>Explore a program, register your profile, or talk with an advisor about where to begin.</p></div><div class="cta-actions"><a mat-flat-button color="primary" routerLink="/professional-courses">Browse programs</a><a mat-stroked-button routerLink="/contact">Contact us</a></div></section>
+  <footer class="home-footer"><div><strong>RS Portal</strong><span>Learning with direction.</span></div><nav aria-label="Footer navigation"><a routerLink="/home">Home</a><a routerLink="/students">Students</a><a routerLink="/professional-courses">Programs</a><a routerLink="/contact">Contact</a></nav><span>© 2026 RS Portal</span></footer>
+</main>

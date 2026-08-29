@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
@@ -23,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
   background:
     radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 30%),
     linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
@@ -100,6 +99,20 @@ iframe {
 }
 
 .advisor-dialog-panel .mat-mdc-dialog-content {
+  margin: 0;
+  padding: 0;
+  max-height: none;
+}
+
+.placement-report-dialog-panel .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+}
+
+.placement-report-dialog-panel .mat-mdc-dialog-content {
   margin: 0;
   padding: 0;
   max-height: none;
