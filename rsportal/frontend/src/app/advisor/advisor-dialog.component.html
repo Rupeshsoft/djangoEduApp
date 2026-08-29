@@ -1,0 +1,74 @@
+<div class="advisor-card">
+  <section class="advisor-banner" aria-label="Learning with RS Portal">
+    <img
+      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+      alt="Professional working on a laptop"
+    />
+    <div class="banner-copy">
+      <p class="banner-kicker">RS Portal</p>
+      <h2>Build your next career chapter.</h2>
+      <p>Speak with an advisor about the right program for your goals.</p>
+    </div>
+  </section>
+
+  <form [formGroup]="inquiryForm" (ngSubmit)="submit()" mat-dialog-content class="advisor-form">
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+
+    <label>
+      <span>Name *</span>
+      <input formControlName="name" placeholder="Enter your name" autocomplete="name" />
+    </label>
+
+    <label>
+      <span>Email *</span>
+      <input formControlName="email" type="email" placeholder="Enter your email" autocomplete="email" />
+    </label>
+
+    <label>
+      <span>Phone *</span>
+      <input formControlName="phone" type="tel" maxlength="10" placeholder="Enter your phone number" autocomplete="tel" />
+    </label>
+
+    <label>
+      <span>Job title *</span>
+      <select formControlName="job_title">
+        <option value="" disabled>Search job title</option>
+        <option>Software Engineer</option>
+        <option>Data Scientist</option>
+        <option>Product Manager</option>
+        <option>Cloud Engineer</option>
+        <option>Other</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Program *</span>
+      <select formControlName="program">
+        <option value="" disabled>Select program</option>
+        <option>Full Stack Development</option>
+        <option>Data Science</option>
+        <option>Cloud Computing</option>
+        <option>UI/UX Design</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Graduation year *</span>
+      <input formControlName="graduation_year" type="number" min="1950" max="2100" />
+    </label>
+
+    <label>
+      <span>Company *</span>
+      <input formControlName="company" placeholder="Search company" autocomplete="organization" />
+    </label>
+
+    <div mat-dialog-actions align="end" class="dialog-actions">
+      <button type="button" mat-stroked-button mat-dialog-close class="advisor-cancel" [disabled]="submitting">
+        Cancel
+      </button>
+      <button type="submit" mat-flat-button color="primary" class="advisor-submit" [disabled]="submitting">
+        {{ submitting ? 'Submitting...' : 'Request a call' }}
+      </button>
+    </div>
+  </form>
+</div>

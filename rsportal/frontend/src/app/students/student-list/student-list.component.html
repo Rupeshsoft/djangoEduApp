@@ -4,7 +4,7 @@
       <p class="eyebrow">Directory</p>
       <h1>Registered Professionals / Students</h1>
     </div>
-    <button type="button" class="primary-action" routerLink="/students/register">Register Student</button>
+    <button type="button" mat-flat-button color="primary" class="primary-action" routerLink="/students/register">Register Student</button>
   </header>
 
   <div class="toolbar" *ngIf="students$ | async">
@@ -24,7 +24,10 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Mobile</th>
-            <th>Education</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Location</th>
+            <th>Educational Details</th>
           </tr>
         </thead>
         <tbody>
@@ -34,10 +37,19 @@
             <td>{{ student.last_name }}</td>
             <td>{{ student.email }}</td>
             <td>{{ student.mobile }}</td>
+            <td>{{ student.date_of_birth | date: 'dd MMM yyyy' }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.city }}, {{ student.state }} - {{ student.pincode }}</td>
             <td>
-              <span *ngFor="let item of student.education ?? []; let last = last">
-                {{ item.education_type }}{{ last ? '' : ', ' }}
-              </span>
+              <div class="education-summary" *ngFor="let item of student.education ?? []">
+                <strong>{{ item.education_type }}</strong>
+                <span>{{ item.school_college_name }}</span>
+                <span>Marks: {{ item.gained_marks }} / {{ item.total_marks }}</span>
+                <span *ngIf="item.total_cgpa !== null && item.total_cgpa !== undefined">
+                  CGPA: {{ item.total_cgpa }}
+                </span>
+              </div>
+              <span class="no-education" *ngIf="!student.education?.length">No details</span>
             </td>
           </tr>
         </tbody>

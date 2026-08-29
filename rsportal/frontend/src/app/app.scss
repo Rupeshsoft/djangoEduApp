@@ -30,6 +30,15 @@ main {
   animation: fadeInUp 0.45s ease;
 }
 
+.advisor-launch {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 30;
+  font-size: 0.8rem;
+  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.25);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

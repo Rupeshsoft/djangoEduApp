@@ -3,7 +3,8 @@ from django.db import transaction
 
 from .models import (
     Student,
-    StudentEducation
+    StudentEducation,
+    AdvisorInquiry,
 )
 
 from .validators import (
@@ -40,6 +41,28 @@ class StudentEducationSerializer(
         )
 
         return attrs
+
+
+class AdvisorInquirySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AdvisorInquiry
+        fields = [
+            "id",
+            "name",
+            "email",
+            "phone",
+            "job_title",
+            "program",
+            "graduation_year",
+            "company",
+            "created_at",
+        ]
+        read_only_fields = ["id", "created_at"]
+
+    def validate_graduation_year(self, value):
+        if value < 1950 or value > 2100:
+            raise serializers.ValidationError("Enter a valid graduation year.")
+        return value
 
 
 class StudentSerializer(

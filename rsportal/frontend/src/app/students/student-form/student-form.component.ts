@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Student, StudentRegistrationPayload } from '../student.model';
@@ -9,7 +14,17 @@ import { StudentService } from '../student.service';
 @Component({
   selector: 'app-student-form',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule, ReactiveFormsModule, RouterLink],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    RouterLink,
+  ],
   templateUrl: './student-form.component.html',
   styleUrl: './student-form.component.scss',
 })

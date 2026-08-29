@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root {
@@ -56,6 +57,29 @@ iframe {
   width: 100%;
 }
 
+.student-form-page .mat-mdc-form-field {
+  --mat-form-field-container-height: 42px;
+  --mat-form-field-container-vertical-padding: 8px;
+}
+
+.student-form-page .mat-mdc-text-field-wrapper {
+  min-height: 42px;
+}
+
+.student-form-page .mat-mdc-form-field-infix {
+  min-height: 42px;
+  padding-top: 9px;
+  padding-bottom: 7px;
+}
+
+.student-form-page .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.student-form-page .mat-mdc-floating-label {
+  font-size: 0.78rem;
+}
+
 .success-snackbar {
   --mdc-snackbar-container-color: #166534;
   --mdc-snackbar-supporting-text-color: #ffffff;
@@ -64,4 +88,19 @@ iframe {
 .error-snackbar {
   --mdc-snackbar-container-color: #b91c1c;
   --mdc-snackbar-supporting-text-color: #ffffff;
+}
+
+.advisor-dialog-panel .mat-mdc-dialog-container .mat-mdc-dialog-surface {
+  padding: 0;
+  max-height: calc(100vh - 24px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.35);
+}
+
+.advisor-dialog-panel .mat-mdc-dialog-content {
+  margin: 0;
+  padding: 0;
+  max-height: none;
 }

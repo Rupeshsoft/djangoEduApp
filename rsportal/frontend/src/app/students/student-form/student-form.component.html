@@ -4,69 +4,76 @@
       <p class="eyebrow">Registration</p>
       <h1>{{ studentId ? 'Edit Student' : 'Register Student' }}</h1>
     </div>
-    <button type="button" class="secondary-action" routerLink="/students">Back to list</button>
+    <button type="button" mat-stroked-button class="secondary-action" routerLink="/students">Back to list</button>
   </header>
 
   <form [formGroup]="studentForm" (ngSubmit)="submit()" class="student-form">
+    <div class="section-header personal-header">
+      <div>
+        <p class="section-kicker">Applicant profile</p>
+        <h2>Personal Details</h2>
+      </div>
+    </div>
+
     <div class="form-grid">
-      <label>
-        <span>First Name</span>
-        <input formControlName="first_name" type="text" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="first_name" type="text" />
+      </mat-form-field>
 
-      <label>
-        <span>Middle Name</span>
-        <input formControlName="middle_name" type="text" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Middle Name</mat-label>
+        <input matInput formControlName="middle_name" type="text" />
+      </mat-form-field>
 
-      <label>
-        <span>Last Name</span>
-        <input formControlName="last_name" type="text" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="last_name" type="text" />
+      </mat-form-field>
 
-      <label>
-        <span>Date of Birth</span>
-        <input formControlName="date_of_birth" type="date" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput formControlName="date_of_birth" type="date" />
+      </mat-form-field>
 
-      <label>
-        <span>Gender</span>
-        <select formControlName="gender">
-          <option value="MALE">Male</option>
-          <option value="FEMALE">Female</option>
-          <option value="OTHER">Other</option>
-        </select>
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="MALE">Male</mat-option>
+          <mat-option value="FEMALE">Female</mat-option>
+          <mat-option value="OTHER">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-      <label>
-        <span>Email</span>
-        <input formControlName="email" type="email" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" />
+      </mat-form-field>
 
-      <label>
-        <span>Mobile</span>
-        <input formControlName="mobile" type="tel" maxlength="10" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobile" type="tel" maxlength="10" />
+      </mat-form-field>
 
-      <label>
-        <span>City</span>
-        <input formControlName="city" type="text" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" type="text" />
+      </mat-form-field>
 
-      <label>
-        <span>State</span>
-        <input formControlName="state" type="text" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input matInput formControlName="state" type="text" />
+      </mat-form-field>
 
-      <label>
-        <span>Pincode</span>
-        <input formControlName="pincode" type="text" maxlength="6" />
-      </label>
+      <mat-form-field appearance="outline">
+        <mat-label>Pincode</mat-label>
+        <input matInput formControlName="pincode" type="text" maxlength="6" />
+      </mat-form-field>
 
-      <label class="full-width">
-        <span>Address</span>
-        <textarea formControlName="address" rows="4"></textarea>
-      </label>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address" rows="3"></textarea>
+      </mat-form-field>
     </div>
 
     <div class="education-section">
@@ -74,6 +81,7 @@
         <h2>Educational Details</h2>
         <button
           type="button"
+          mat-stroked-button
           class="secondary-action"
           *ngIf="education.length < educationTypes.length"
           (click)="addEducationRow()"
@@ -84,42 +92,50 @@
 
       <div class="education-rows" formArrayName="education">
         <div *ngFor="let row of education.controls; let i = index" [formGroupName]="i" class="education-row">
-          <label>
-            <span>Education Type</span>
-            <select formControlName="education_type">
-              <option *ngFor="let type of educationTypes" [value]="type">{{ type }}</option>
-            </select>
-          </label>
+          <mat-form-field appearance="outline">
+            <mat-label>Education Type</mat-label>
+            <mat-select formControlName="education_type">
+              <mat-option *ngFor="let type of educationTypes" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-          <label>
-            <span>School / College</span>
-            <input formControlName="school_college_name" type="text" />
-          </label>
+          <mat-form-field appearance="outline">
+            <mat-label>School / College</mat-label>
+            <input matInput formControlName="school_college_name" type="text" />
+          </mat-form-field>
 
-          <label>
-            <span>Total Marks</span>
-            <input formControlName="total_marks" type="number" min="1" />
-          </label>
+          <mat-form-field appearance="outline">
+            <mat-label>Total Marks</mat-label>
+            <input matInput formControlName="total_marks" type="number" min="1" />
+          </mat-form-field>
 
-          <label>
-            <span>Marks Obtained</span>
-            <input formControlName="gained_marks" type="number" min="0" />
-          </label>
+          <mat-form-field appearance="outline">
+            <mat-label>Marks Obtained</mat-label>
+            <input matInput formControlName="gained_marks" type="number" min="0" />
+          </mat-form-field>
 
-          <label>
-            <span>CGPA</span>
-            <input formControlName="total_cgpa" type="number" min="0" step="0.01" />
-          </label>
+          <mat-form-field appearance="outline">
+            <mat-label>CGPA</mat-label>
+            <input matInput formControlName="total_cgpa" type="number" min="0" step="0.01" />
+          </mat-form-field>
 
-          <button type="button" class="danger-action" *ngIf="education.length > 1" (click)="removeEducationRow(i)">
-            Remove
+          <button
+            type="button"
+            mat-icon-button
+            class="danger-action"
+            *ngIf="education.length > 1"
+            (click)="$event.preventDefault(); $event.stopPropagation(); removeEducationRow(i)"
+            aria-label="Remove education details"
+            title="Remove education details"
+          >
+            <mat-icon>close</mat-icon>
           </button>
         </div>
       </div>
     </div>
 
     <div class="actions">
-      <button type="submit" class="primary-action">{{ studentId ? 'Update Student' : 'Save Student' }}</button>
+      <button type="submit" mat-flat-button color="primary" class="primary-action">{{ studentId ? 'Update Student' : 'Save Student' }}</button>
     </div>
 
     <p class="form-error" *ngIf="studentForm.errors?.['submitFailed']">

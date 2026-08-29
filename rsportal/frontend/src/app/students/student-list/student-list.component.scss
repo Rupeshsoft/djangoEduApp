@@ -5,7 +5,20 @@
 }
 
 .page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
   margin-bottom: 1.25rem;
+}
+
+.page-header .primary-action {
+  flex: 0 0 auto;
+  min-width: 0;
+  min-height: 2.1rem;
+  padding: 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .eyebrow {
@@ -19,9 +32,10 @@
 
 .page-header h1 {
   margin: 0;
-  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-size: 16px;
+  font-weight: 800;
   color: var(--text);
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .toolbar {
@@ -45,22 +59,61 @@
 .student-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 1180px;
+  font-size: 0.74rem;
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    align-items: flex-start;
+  }
+
+  .page-header .primary-action {
+    margin-top: 0.2rem;
+  }
 }
 
 .student-table th,
 .student-table td {
-  padding: 1rem 1.2rem;
+  padding: 0.65rem 0.75rem;
   text-align: left;
+  vertical-align: top;
   border-bottom: 1px solid var(--border);
 }
 
 .student-table th {
   background: rgba(148, 163, 184, 0.08);
   color: #334155;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.education-summary {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 210px;
+  padding: 0.35rem 0;
+  line-height: 1.35;
+}
+
+.education-summary + .education-summary {
+  border-top: 1px solid #e2e8f0;
+}
+
+.education-summary strong {
+  color: var(--primary);
+  font-size: 0.7rem;
+}
+
+.education-summary span {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.no-education {
+  color: var(--muted);
+  font-size: 0.7rem;
 }
 
 .student-table tbody tr {

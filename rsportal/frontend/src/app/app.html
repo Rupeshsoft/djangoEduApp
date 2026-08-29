@@ -1,6 +1,10 @@
 ﻿<main class="shell">
   <app-top-menu />
 
+  <button type="button" class="advisor-launch" mat-flat-button color="primary" (click)="openAdvisorDialog()">
+    Talk to an Advisor
+  </button>
+
   <div class="page-shell">
     <router-outlet />
   </div>
