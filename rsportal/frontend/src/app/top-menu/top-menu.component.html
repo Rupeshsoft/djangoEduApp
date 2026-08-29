@@ -1,12 +1,22 @@
 <header class="top-menu" aria-label="Main navigation">
   <nav class="nav-bar">
     <a class="brand" routerLink="/home" routerLinkActive="active">RS Portal</a>
-    <div class="nav-links">
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>{{ menuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
+    <div class="nav-links" [class.menu-open]="menuOpen">
       <a
         *ngFor="let item of navItems; trackBy: trackByNavItem"
         [routerLink]="item.route"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
       >
         {{ item.label }}
       </a>
