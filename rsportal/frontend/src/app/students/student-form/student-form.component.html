@@ -1,0 +1,129 @@
+<section class="student-form-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Registration</p>
+      <h1>{{ studentId ? 'Edit Student' : 'Register Student' }}</h1>
+    </div>
+    <button type="button" class="secondary-action" routerLink="/students">Back to list</button>
+  </header>
+
+  <form [formGroup]="studentForm" (ngSubmit)="submit()" class="student-form">
+    <div class="form-grid">
+      <label>
+        <span>First Name</span>
+        <input formControlName="first_name" type="text" />
+      </label>
+
+      <label>
+        <span>Middle Name</span>
+        <input formControlName="middle_name" type="text" />
+      </label>
+
+      <label>
+        <span>Last Name</span>
+        <input formControlName="last_name" type="text" />
+      </label>
+
+      <label>
+        <span>Date of Birth</span>
+        <input formControlName="date_of_birth" type="date" />
+      </label>
+
+      <label>
+        <span>Gender</span>
+        <select formControlName="gender">
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Email</span>
+        <input formControlName="email" type="email" />
+      </label>
+
+      <label>
+        <span>Mobile</span>
+        <input formControlName="mobile" type="tel" maxlength="10" />
+      </label>
+
+      <label>
+        <span>City</span>
+        <input formControlName="city" type="text" />
+      </label>
+
+      <label>
+        <span>State</span>
+        <input formControlName="state" type="text" />
+      </label>
+
+      <label>
+        <span>Pincode</span>
+        <input formControlName="pincode" type="text" maxlength="6" />
+      </label>
+
+      <label class="full-width">
+        <span>Address</span>
+        <textarea formControlName="address" rows="4"></textarea>
+      </label>
+    </div>
+
+    <div class="education-section">
+      <div class="section-header">
+        <h2>Educational Details</h2>
+        <button
+          type="button"
+          class="secondary-action"
+          *ngIf="education.length < educationTypes.length"
+          (click)="addEducationRow()"
+        >
+          Add Education
+        </button>
+      </div>
+
+      <div class="education-rows" formArrayName="education">
+        <div *ngFor="let row of education.controls; let i = index" [formGroupName]="i" class="education-row">
+          <label>
+            <span>Education Type</span>
+            <select formControlName="education_type">
+              <option *ngFor="let type of educationTypes" [value]="type">{{ type }}</option>
+            </select>
+          </label>
+
+          <label>
+            <span>School / College</span>
+            <input formControlName="school_college_name" type="text" />
+          </label>
+
+          <label>
+            <span>Total Marks</span>
+            <input formControlName="total_marks" type="number" min="1" />
+          </label>
+
+          <label>
+            <span>Marks Obtained</span>
+            <input formControlName="gained_marks" type="number" min="0" />
+          </label>
+
+          <label>
+            <span>CGPA</span>
+            <input formControlName="total_cgpa" type="number" min="0" step="0.01" />
+          </label>
+
+          <button type="button" class="danger-action" *ngIf="education.length > 1" (click)="removeEducationRow(i)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="primary-action">{{ studentId ? 'Update Student' : 'Save Student' }}</button>
+    </div>
+
+    <p class="form-error" *ngIf="studentForm.errors?.['submitFailed']">
+      {{ studentForm.errors?.['submitFailed'] }}
+    </p>
+  </form>
+</section>

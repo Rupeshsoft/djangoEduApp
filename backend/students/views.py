@@ -12,7 +12,7 @@ class StudentViewSet(
 
     queryset = (
         Student.objects
-        .prefetch_related("education")
+        .prefetch_related("educations")
         .all()
     )
 

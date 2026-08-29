@@ -1,0 +1,55 @@
+<section class="student-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Directory</p>
+      <h1>Registered Professionals / Students</h1>
+    </div>
+    <button type="button" class="primary-action" routerLink="/students/register">Register Student</button>
+  </header>
+
+  <div class="toolbar" *ngIf="students$ | async">
+    <mat-form-field appearance="outline">
+      <mat-label>Search students</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (ngModelChange)="filterStudents()" placeholder="Name, email, course, status" />
+    </mat-form-field>
+  </div>
+
+  <div class="table-wrap" *ngIf="students$ | async as students; else loading">
+    <ng-container *ngIf="filteredStudents.length; else noResults">
+      <table class="student-table" aria-label="Registered students">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Education</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filteredStudents; trackBy: trackByStudentId">
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.mobile }}</td>
+            <td>
+              <span *ngFor="let item of student.education ?? []; let last = last">
+                {{ item.education_type }}{{ last ? '' : ', ' }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #noResults>
+      <div class="empty-state">No registered students match your search.</div>
+    </ng-template>
+  </div>
+
+  <ng-template #loading>
+    <p class="loading">Loading registered students...</p>
+  </ng-template>
+</section>

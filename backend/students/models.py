@@ -10,6 +10,7 @@ class Student(models.Model):
     ]
 
     first_name = models.CharField(max_length=50)
+    middle_name = models.CharField(max_length=50, blank=True, default='')
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100, unique=True)
     date_of_birth = models.DateField()

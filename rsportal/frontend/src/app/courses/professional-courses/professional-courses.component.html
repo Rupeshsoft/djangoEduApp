@@ -1,0 +1,28 @@
+<section class="courses-page">
+  <header class="page-header">
+    <p class="eyebrow">Learning Tracks</p>
+    <h1>Professional Courses</h1>
+  </header>
+
+  <div class="toolbar">
+    <mat-form-field appearance="outline">
+      <mat-label>Search courses</mat-label>
+      <input matInput [(ngModel)]="searchTerm" (ngModelChange)="filterCourses()" placeholder="Course, level, duration, format" />
+    </mat-form-field>
+  </div>
+
+  <div class="course-grid" *ngIf="visibleCourses.length; else noResults">
+    <mat-card class="course-card" *ngFor="let course of visibleCourses; trackBy: trackByCourseTitle">
+      <div class="badge">{{ course.level }}</div>
+      <h2>{{ course.title }}</h2>
+      <ul>
+        <li><strong>Duration:</strong> {{ course.duration }}</li>
+        <li><strong>Format:</strong> {{ course.format }}</li>
+      </ul>
+    </mat-card>
+  </div>
+
+  <ng-template #noResults>
+    <div class="empty-state">No professional courses match your search.</div>
+  </ng-template>
+</section>

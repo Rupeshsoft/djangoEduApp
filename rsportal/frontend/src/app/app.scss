@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: transparent;
+  color: var(--text);
+}
+
+.shell {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.page-shell {
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+.page-shell > * {
+  animation: fadeInUp 0.45s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

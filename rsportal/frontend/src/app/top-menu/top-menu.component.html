@@ -1,0 +1,15 @@
+<header class="top-menu" aria-label="Main navigation">
+  <nav class="nav-bar">
+    <a class="brand" routerLink="/home" routerLinkActive="active">RS Portal</a>
+    <div class="nav-links">
+      <a
+        *ngFor="let item of navItems; trackBy: trackByNavItem"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        {{ item.label }}
+      </a>
+    </div>
+  </nav>
+</header>

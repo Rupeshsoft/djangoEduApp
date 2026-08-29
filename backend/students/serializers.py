@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.db import transaction
 
 from .models import (
     Student,
@@ -46,7 +47,10 @@ class StudentSerializer(
 ):
 
     education = StudentEducationSerializer(
-        many=True
+        many=True,
+        source="educations",
+        required=False,
+        allow_null=True,
     )
 
     class Meta:
@@ -108,9 +112,12 @@ class StudentSerializer(
     def validate(self, attrs):
 
         education = attrs.get(
-            "education",
+            "educations",
             []
         )
+
+        if not education:
+            return attrs
 
         education_types = [
             item["education_type"]
@@ -148,10 +155,12 @@ class StudentSerializer(
 
         return attrs
 
+    @transaction.atomic
     def create(self, validated_data):
 
         education_data = validated_data.pop(
-            "education"
+            "educations",
+            []
         )
 
         student = Student.objects.create(
@@ -167,6 +176,7 @@ class StudentSerializer(
 
         return student
 
+    @transaction.atomic
     def update(
         self,
         instance,
@@ -174,7 +184,7 @@ class StudentSerializer(
     ):
 
         education_data = validated_data.pop(
-            "education",
+            "educations",
             None
         )
 
